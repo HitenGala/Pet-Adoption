@@ -1,0 +1,754 @@
+/* New Color Palette */
+:root {
+  --primary-color: #FFF2D7; /* Light Yellow */
+  --secondary-color: #FFE0B5; /* Soft Orange */
+  --accent-color: #F8C794; /* Peach */
+  --highlight-color: #D8AE7E; /* Muted Gold */
+  --text-color: #333; /* Darker Gray for better contrast */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: var(--primary-color);
+}
+
+header {
+  background: linear-gradient(45deg, var(--secondary-color), var(--accent-color)); /* Gradient header */
+  padding: 20px 0;
+  text-align: center;
+  font-size: 2.5em;
+  color: var(--text-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Navigation Styles */
+nav {
+  display: flex;
+  justify-content: center;
+  background-color: var(--secondary-color); /* Navigation background */
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+/* Navigation Links */
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  margin: 0 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+}
+
+/* Hover Effect with a Fancy Underline */
+nav a::before {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background-color: var(--accent-color);
+  transition: width 0.3s, background-color 0.3s;
+}
+
+nav a:hover {
+  color: var(--highlight-color); /* Hover text color */
+  transform: translateY(-3px);
+}
+
+nav a:hover::before {
+  width: 100%;
+  background-color: var(--highlight-color);  /* Hover underline color */
+}
+
+/* Responsive Navigation Styles */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    display: none; /* Hide the menu by default */
+  }
+
+  nav.show {
+    display: flex; /* Show the menu when the icon is clicked */
+  }
+
+  nav a {
+    margin: 10px 0;
+    font-size: 1.5em;
+    width: 100%; /* Full width for links */
+    text-align: center; /* Center align text */
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-color);
+  }
+
+  nav a:first-child {
+    border-top: none; /* Remove border from the first link */
+  }
+
+  nav a:hover {
+    background-color: var(--secondary-color); /* Highlight link background on hover */
+    color: var(--highlight-color); /* Change text color on hover */
+  }
+}
+
+/* Hamburger Menu Icon */
+.menu-icon {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  z-index: 1001; /* Higher than the navigation bar */
+}
+
+@media (max-width: 768px) {
+  .menu-icon {
+    display: block;
+  }
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.section {
+  background: var(--accent-color);
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.section:hover {
+  transform: scale(1.02);
+}
+
+.section-title {
+  font-size: 1.8em;
+  margin-bottom: 10px;
+  color: var(--text-color); /* Section title color */
+}
+
+footer {
+  background: var(--secondary-color); /* Footer background */
+  color: var(--text-color);
+  text-align: center;
+  padding: 10px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+}
+
+a {
+  color: var(--highlight-color); /* Link color */
+  text-decoration: none;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.contact-info div {
+  flex: 1;
+  margin: 10px;
+  min-width: 250px;
+  transition: transform 0.3s;
+  background: var(--highlight-color);
+  color: var(--text-color);
+}
+
+.contact-info div:hover {
+  transform: translateY(-10px);
+}
+
+.success-stories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.story {
+  background: var(--accent-color);
+  color: var(--text-color);  /* Success story background */
+  padding: 15px;
+  margin: 10px;
+  border-radius: 10px;
+  width: 45%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.story:hover {
+  transform: translateY(-10px);
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .contact-info,
+  .success-stories {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .story {
+    width: 100%;
+  }
+}
+
+.pet-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.pet-profile {
+  background: var(--highlight-color);
+  color: var(--text-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  padding: 15px;
+  width: 30%;
+  transition: transform 0.3s;
+}
+
+.pet-profile img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.pet-profile h3 {
+  margin: 10px 0;
+  color: var(--text-color); /* Profile title color */
+}
+
+.pet-profile p {
+  color: var(--text-color);
+}
+
+.pet-profile:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .pet-profile {
+    width: 80%;
+    margin: 10px auto;
+  }
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-group textarea {
+  resize: vertical;
+  height: 100px;
+}
+
+button {
+  background-color: var(--secondary-color); /* Button background */
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--highlight-color);  /* Button hover */
+}
+
+/* Slider Styles */
+.slider {
+  position: relative;
+  max-width: 80%;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+  height: 400px;
+}
+
+.slides {
+  display: block;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slides img {
+  width: 200%;
+  height: 200%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+button.prev,
+button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+button.prev:hover,
+button.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+button.prev {
+  left: 10px;
+}
+
+button.next {
+  right: 10px;
+}
+
+/* About Us Page Styles */
+.about-content {
+  background: var(--primary-color);
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.team {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.team-member {
+  background: var(--accent-color); /* Team member background */
+  padding: 15px;
+  border-radius: 10px;
+  width: 30%;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.team-member img {
+  width: 100%;
+  border-radius: 50%;
+  height: auto;
+  max-width: 150px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.team-member h3 {
+  margin: 10px 0 5px;
+  font-size: 1.2em;
+}
+
+.team-member p {
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+.pet-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.pet-profile {
+  background: var(--primary-color);
+  padding: 20px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s;
+  width: 30%;
+}
+
+.pet-profile img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.pet-profile:hover {
+  transform: translateY(-10px);
+}
+
+.pet-profile button {
+  background-color: var(--highlight-color); /* Button background */
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pet-profile button:hover {
+  background-color: var(--accent-color); /* Button hover */
+}
+
+@media (max-width: 768px) {
+  .pet-profile {
+    width: 100%;
+  }
+
+  .team-member {
+    width: 100%;
+    background: var(--accent-color);
+    color: var(--text-color);
+  }
+}
+
+/* Back to Top Button Styles */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--secondary-color); /* Button background */
+  color: var(--text-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, transform 0.3s;
+  z-index: 1000;
+}
+
+#back-to-top:hover {
+  background-color: var(--highlight-color); /* Button hover */
+  transform: translateY(-3px);
+}
+
+/* Filter Form Styles */
+#filter-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#filter-form label {
+  font-weight: bold;
+  color: var(--accent-color);
+  font-size: 1em;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+#filter-form select {
+  padding: 10px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  font-size: 1em;
+  margin-right: 20px;
+  min-width: 150px; /* Ensures a consistent width */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#filter-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#filter-button:hover {
+  background-color: var(--highlight-color);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  #filter-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #filter-form label,
+  #filter-form select {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  #filter-button {
+    width: 100%;
+  }
+}
+/* Filter Form Styles */
+#filter-form {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#filter-form label {
+  font-weight: bold;
+  color: var(--accent-color);
+  font-size: 1em;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+#filter-form select {
+  padding: 10px;
+  border: 2px solid var(--secondary-color);
+  border-radius: 5px;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  font-size: 1em;
+  margin-right: 20px;
+  min-width: 150px; /* Ensures a consistent width */
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#filter-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+#filter-button:hover {
+  background-color: var(--highlight-color);
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  #filter-form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #filter-form label,
+  #filter-form select {
+    margin-right: 0;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+
+  #filter-button {
+    width: 100%;
+  }
+}
+/* Filter Form Animation */
+#filter-form select,
+#filter-form button {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#filter-form select:hover,
+#filter-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* Filter Form Container Animation */
+#filter-form {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px; /* Adding a slight border-radius for a softer look */
+    padding: 15px; /* Optional: to make the hover effect more pronounced */
+}
+
+#filter-form:hover {
+    transform: scale(1.02); /* Slightly enlarges the entire form */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Adds a more pronounced shadow */
+}
+
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+/* Title Styles */
+.animated-title {
+    font-size: 3.5em;
+    font-weight: bold;
+    background: linear-gradient(to left, #d8ae7e, #ffe0b5); /* Left-to-right gradient */
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 0px 0px 5px rgba(216, 174, 126, 0.5);
+    animation: glow 2s infinite alternate;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Glow Animation */
+@keyframes glow {
+    from {
+        text-shadow: 0px 0px 5px rgba(216, 174, 126, 0.5), 0px 0px 10px rgba(216, 174, 126, 0.4);
+    }
+    to {
+        text-shadow: 0px 0px 10px rgba(216, 174, 126, 0.6), 0px 0px 15px rgba(216, 174, 126, 0.5);
+    }
+}
+
+/* Wave Animation */
+@keyframes wave {
+    0%, 40%, 100% {
+        transform: translateY(0);
+    }
+    20% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Apply Animation to Each Letter */
+.animated-title span {
+    display: inline-block;
+    animation: wave 1.5s ;
+}
+
+.animated-title span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.animated-title span:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.animated-title span:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.animated-title span:nth-child(5) {
+    animation-delay: 0.4s;
+}
+.animated-title span:nth-child(6) {
+    animation-delay: 0.5s;
+}
+.animated-title span:nth-child(7) {
+    animation-delay: 0.6s;
+}
+.animated-title span:nth-child(8) {
+    animation-delay: 0.7s;
+}
+.animated-title span:nth-child(9) {
+    animation-delay: 0.8s;
+}
+.animated-title span:nth-child(10) {
+    animation-delay: 0.9s;
+}
+.animated-title span:nth-child(11) {
+    animation-delay: 1.0s;
+}
+.animated-title span:nth-child(12) {
+    animation-delay: 1.1s;
+}
+.animated-title span:nth-child(13) {
+    animation-delay: 1.2s;
+}
+.animated-title span:nth-child(14) {
+    animation-delay: 1.3s;
+}
+.animated-title span:nth-child(15) {
+    animation-delay: 1.4s;
+}
+.animated-title span:nth-child(16) {
+    animation-delay: 1.5s;
+}
+.animated-title span:nth-child(17) {
+    animation-delay: 1.6s;
+}
+.animated-title span:nth-child(18) {
+    animation-delay: 1.7s;
+}
+.animated-title span:nth-child(19) {
+    animation-delay: 1.8s;
+}
+.animated-title span:nth-child(20) {
+    animation-delay: 1.9s;
+}
+.animated-title span:nth-child(21) {
+    animation-delay: 2.0s;
+}
+.animated-title span:nth-child(22) {
+    animation-delay: 2.1s;
+}
+
+/* Continue adding delays for each letter... */
